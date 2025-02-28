@@ -27,7 +27,7 @@ export function APITester() {
       <form onSubmit={testEndpoint} className="endpoint-row">
         <select name="method" className="method">
           <option value="GET">GET</option>
-          <option value="PUT">PUT</option>
+          <option value="POST">POST</option>
         </select>
         <input
           type="text"
