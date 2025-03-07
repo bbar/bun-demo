@@ -13,6 +13,7 @@ export function App() {
       </div>
 
       <h1>Bun + React</h1>
+      <h6>{process.env.BUN_PUBLIC_MY_VAR}</h6>
       <p>
         Edit <code>src/App.tsx</code> and save to test HMR
       </p>

@@ -11,11 +11,9 @@
     "start": "NODE_ENV=production bun src/index.tsx"
   },
   "dependencies": {
-    "@elysiajs/swagger": "^1.2.2",
     "@hono/zod-openapi": "^0.18.4",
     "@hono/zod-validator": "^0.4.3",
     "@scalar/hono-api-reference": "^0.5.175",
-    "elysia": "^1.2.22",
     "hono": "^4.7.2",
     "react": "^19",
     "react-dom": "^19",
