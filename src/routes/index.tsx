@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Stack, Code, Title } from "@mantine/core";
+import { Stack, Code, Title, Anchor } from "@mantine/core";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -34,6 +34,9 @@ function Index() {
     <Stack p="md">
       <Title order={5}>Hono RPC Results</Title>
       <Code block>{JSON.stringify({ a, b, c }, null, 2)}</Code>
+      <Anchor href="/api/reference" target="_blank">
+        API Reference
+      </Anchor>
     </Stack>
   );
 }
