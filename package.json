@@ -6,23 +6,45 @@
   "main": "src/index.tsx",
   "module": "src/index.tsx",
   "scripts": {
-    "dev": "bun --hot src/index.tsx",
-    "build": "bun build ./src/index.html --outdir=dist --sourcemap --target=browser --minify --define:process.env.NODE_ENV='\"production\"' --env='BUN_PUBLIC_*'",
+    "generate-routes": "tsr generate",
+    "watch-routes": "tsr watch",
+    "dev": "concurrently \"bun run watch-routes\" \"bun --hot src/index.tsx\"",
+    "build": "bun run generate-routes && bun build ./src/index.html --outdir=dist --sourcemap --target=browser --minify --define:process.env.NODE_ENV='\"production\"' --env='BUN_PUBLIC_*'",
     "start": "NODE_ENV=production bun src/index.tsx"
   },
   "dependencies": {
     "@hono/zod-openapi": "^0.18.4",
     "@hono/zod-validator": "^0.4.3",
+    "@mantine/charts": "^7.17.1",
+    "@mantine/code-highlight": "^7.17.1",
+    "@mantine/core": "^7.17.1",
+    "@mantine/dates": "^7.17.1",
+    "@mantine/dropzone": "^7.17.1",
+    "@mantine/form": "^7.17.1",
+    "@mantine/hooks": "^7.17.1",
+    "@mantine/modals": "^7.17.1",
+    "@mantine/notifications": "^7.17.1",
+    "@mantine/spotlight": "^7.17.1",
     "@scalar/hono-api-reference": "^0.5.175",
+    "@supabase/supabase-js": "^2.49.1",
+    "@tanstack/react-query": "^5.67.1",
+    "@tanstack/react-query-devtools": "^5.67.1",
+    "@tanstack/react-router": "^1.112.18",
+    "dayjs": "^1.11.13",
     "hono": "^4.7.2",
     "react": "^19",
     "react-dom": "^19",
+    "recharts": "2",
     "zod": "^3.24.2"
   },
   "devDependencies": {
+    "@tanstack/eslint-plugin-query": "^5.66.1",
+    "@tanstack/router-cli": "^1.112.18",
+    "@tanstack/router-devtools": "^1.112.18",
+    "@types/bun": "latest",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@types/bun": "latest"
+    "concurrently": "^9.1.2"
   },
   "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }

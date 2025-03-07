@@ -1,12 +1,12 @@
-import { OpenAPIHono as Hono } from "@hono/zod-openapi";
+import { OpenAPIHono } from "@hono/zod-openapi";
 import { HTTPException } from "hono/http-exception";
 import { apiReference } from "@scalar/hono-api-reference";
 import api from "@/hono-routes/api";
 import { ResponseSchema } from "@/types";
 
-const hono = new Hono();
+const app = new OpenAPIHono();
 
-hono.openAPIRegistry.register(`Response`, ResponseSchema);
+app.openAPIRegistry.register(`Response`, ResponseSchema);
 // Itr over all namespaces like this:
 // for (const [namespace, value] of Object.entries(WfTsZ)) {
 //   const { Zod = {} } = value;
@@ -22,9 +22,9 @@ hono.openAPIRegistry.register(`Response`, ResponseSchema);
 //   }
 // }
 
-const routes = hono.route("/api", api);
+const routes = app.route("/api", api);
 
-hono.doc("/api/reference/json", {
+app.doc("/api/reference/json", {
   openapi: "3.0.0",
   info: {
     version: "0.0.1",
@@ -32,7 +32,7 @@ hono.doc("/api/reference/json", {
   },
 });
 
-hono.get(
+app.get(
   "/api/reference",
   apiReference({
     theme: "elysiajs",
@@ -42,7 +42,7 @@ hono.get(
   })
 );
 
-hono.onError((err, c) => {
+app.onError((err, c) => {
   console.error("Error:", err);
   if (err instanceof HTTPException) {
     return err.getResponse();
@@ -57,5 +57,5 @@ hono.onError((err, c) => {
   );
 });
 
-export default hono;
+export default app;
 export type AppType = typeof routes;

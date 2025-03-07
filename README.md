@@ -7,9 +7,13 @@ This project demonstrates how to set up a modern web application using Bun with 
 This is an educational project that demonstrates:
 - Setting up a React frontend with Bun
 - Implementing API routes using Hono
-- Implementing API routes using Elysia
-- OpenAPI/Swagger documentation integration
+- Hono RPC
+- OpenAPI/Swagger documentation integration (http://localhost:3000/api/reference)
 - Hot module reloading (HMR)
+- Tanstack Router with @tanstack/router-cli
+- Tanstack Query
+- Mantine Component Library
+- Supabase
 
 ## 🚀 Getting Started
 

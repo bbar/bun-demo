@@ -1,9 +1,7 @@
-import { OpenAPIHono as Hono, z, createRoute } from "@hono/zod-openapi";
+import { OpenAPIHono, z, createRoute } from "@hono/zod-openapi";
 import { ResponseSchema } from "@/types";
 
-const hello = new Hono();
-
-hello
+const hello = new OpenAPIHono()
   .openapi(
     createRoute({
       method: "get",
